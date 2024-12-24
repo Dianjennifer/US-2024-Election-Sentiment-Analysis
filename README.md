@@ -5,7 +5,7 @@
 
 
 
-7. ## Introduction
+## Introduction
 Social media has become a powerful platform for political conversation, especially during major events like the 2024 U.S. presidential election. In this project, i analyzed the sentiment of social media mentions to explore how candidates like Kamala Harris, Donald Trump, and others are perceived by the public. By analyzing the tone—whether positive, negative, or neutral—of these mentions, we aim to understand how social media influences voter opinions and amplifies campaign messages. This analysis provides valuable insights into the emotional pulse of the electorate and the role of social media in shaping the election 
 
 ## Data Loading
@@ -21,4 +21,44 @@ val <- read.csv("C:/Users/PC/Downloads/archive/val.csv")
 View(train)
 View(test)
 View(val)
+```
+
+## Data Cleaning
+
+Before diving into the analysis, I cleaned and preprocessed the data. This involved handling missing values, converting the timestamp column into a proper datetime format, and standardizing the sentiment column into positive, negative, and neutral categories. I also ensured candidate names were consistent. These steps were essential to prepare the data for accurate sentiment analysis.
+
+ * Combining the data.
+The first step in the analysis was to combine the three separate datasets—train, test, and validation—into one comprehensive dataset. This allowed for a unified view of the social media mentions and their associated sentiments. I used the rbind() function in R to merge the datasets, ensuring that all relevant data was included for analysis. This combined dataset served as the foundation for the sentiment analysis.
+
+```sql
+combined_data <- rbind(train, val, test)
+View(combined_data)
+```
+
+ * Checking for missing values
+```sql
+colSums(is.na(combined_data))
+```
+There were no missing values in the data.
+
+ * Checking the column data type
+```sql
+str(combined_data)
+```
+The time stamp column was formatted as text and therefore it was necessary to change it to datetime format.
+```sql
+library(lubridate)
+combined_data$timestamp <- ymd_hms(combined_data$timestamp)
+str(combined_data$timestamp)
+```
+* Checking the distribution of numeric valuables
+
+This helped in identifying patterns, outliers, and potential issues that could affect the analysis.
+```sql
+hist(combined_data$likes, 
+     main = "Distribution of Likes", 
+     xlab = "Likes", 
+     col = "orange", 
+     border = "black", 
+     breaks = 10)
 ```
