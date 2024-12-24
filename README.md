@@ -13,7 +13,7 @@ For this analysis, the data was sourced from Kaggle, specifically the 2024 U.S. 
 
 The dataset is divided into three parts: train, test, and validation, which include columns such as candidate name, sentiment, and timestamp. These files were loaded into R for further analysis. The data provides insights into how different candidates are discussed and perceived on social media, which is central to our sentiment analysis.
 
-```sql
+```r
 train <- read.csv("C:/Users/PC/Downloads/archive/train.csv")
 test <- read.csv("C:/Users/PC/Downloads/archive/test.csv")
 val <- read.csv("C:/Users/PC/Downloads/archive/val.csv")
@@ -30,23 +30,23 @@ Before diving into the analysis, I cleaned and preprocessed the data. This invol
  * Combining the data.
 The first step in the analysis was to combine the three separate datasets—train, test, and validation—into one comprehensive dataset. This allowed for a unified view of the social media mentions and their associated sentiments. I used the rbind() function in R to merge the datasets, ensuring that all relevant data was included for analysis. This combined dataset served as the foundation for the sentiment analysis.
 
-```sql
+```r
 combined_data <- rbind(train, val, test)
 View(combined_data)
 ```
 
  * Checking for missing values
-```sql
+```r
 colSums(is.na(combined_data))
 ```
 There were no missing values in the data.
 
  * Checking the column data type
-```sql
+```r
 str(combined_data)
 ```
 The time stamp column was formatted as text and therefore it was necessary to change it to datetime format.
-```sql
+```r
 library(lubridate)
 combined_data$timestamp <- ymd_hms(combined_data$timestamp)
 str(combined_data$timestamp)
@@ -54,7 +54,7 @@ str(combined_data$timestamp)
 * Checking the distribution of numeric valuables
 
 This helped in identifying patterns, outliers, and potential issues that could affect the analysis.
-```sql
+```r
 hist(combined_data$likes, 
      main = "Distribution of Likes", 
      xlab = "Likes", 
