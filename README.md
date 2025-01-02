@@ -1,6 +1,9 @@
 # Sentiment Analysis on 2024 U.S. Election
 ![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Where%20do%20Harris%20and%20Trump%20stand%20on%20the%20key%20election%20issues_.jpeg)
 
+## Disclamer
+This analysis is intended for demonstration purposes only and does not represent a fully developed or operational project.
+
 ## Table of Contents
 
 
@@ -60,5 +63,14 @@ hist(combined_data$likes,
      xlab = "Likes", 
      col = "orange", 
      border = "black", 
+     breaks = 10)
+```
+
+```r
+hist(combined_data$retweets, 
+     main = "Distribution of Retweets", 
+     xlab = "Retweets", 
+     col = "purple",
+     border = "black",
      breaks = 10)
 ```
