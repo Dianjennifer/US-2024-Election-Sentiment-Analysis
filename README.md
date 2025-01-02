@@ -110,6 +110,7 @@ ggplot(combined_data, aes(x = sentiment, fill = sentiment)) +
   scale_fill_manual(values = c("positive" = "lightgreen", "negative" = "lightcoral", "neutral" = "lightblue")) +
   theme_minimal()
 ```
+![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Sentiment%20Distribution.png)
 
 * Sentiment Distribution by Party
 By visualizing sentiment for each party, we can understand public perceptions and how they vary among political groups.
@@ -121,6 +122,7 @@ ggplot(combined_data, aes(x = party, fill = sentiment)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   theme_minimal()
 ```
+![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Sentiment%20by%20Party.png)
 
 * Sentiment Distribution by Candidate
 By analyzing the sentiment distribution for each candidate, we can uncover public perceptions and emotional reactions to their campaigns. This analysis provides insights into how different candidates resonate with voters and the tone of discussions surrounding them on social media.
@@ -138,6 +140,7 @@ ggplot(combined_data, aes(x = candidate, fill = sentiment)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Sentiment%20by%20Candidate.png)
 
 ## Engagemnt Analysis
 It’s crucial to examine how the public engages with tweets or likes about candidates and political issues, and whether sentiment influences this engagement. By analyzing the connection between sentiment (positive, negative, or neutral) and engagement metrics, we can uncover which topics or candidates sparked more excitement, debate, or approval among the electorate.
@@ -193,6 +196,11 @@ for (sentiment in c("positive", "neutral", "negative")) {
   generate_wordcloud(subset$tweet_text, title_text)
 }
 ```
+![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Positive%20Sentiment.png)
+![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Neutral%20Sentiment.png)
+![image](https://github.com/Dianjennifer/US-2024-Election-Sentiment-Analysis/blob/main/Negative%20Sentiment.png)
+
+
 ## Insights
 Candidate Sentiment Dynamics . Social media sentiment for Donald Trump displayed significant polarization, with both strongly positive and strongly negative opinions dominating the discussion. Kamala Harris, on the other hand, exhibited a relatively neutral sentiment distribution, indicating less emotionally charged discourse overall.
 
